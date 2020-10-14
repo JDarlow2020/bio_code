@@ -105,7 +105,7 @@ def ballgown_parser(results, IDs, Names):
     #%%
     # Create list of names based on MSTRG 
     names = []
-    with open("D:\Data\get_sig_gene_no_dots.csv", "r") as csv:
+    with open("get_sig_gene_no_dots.csv", "r") as csv:
         csv = csv.readlines()
         for i in range(len(csv)-10):
             if csv[i].split(",")[2].startswith("MSTRG") == False:
@@ -144,7 +144,7 @@ def ballgown_parser(results, IDs, Names):
     #%%
     # Create Other INformation Lists
     sig_list = []
-    with open("D:\Data\sig_tissue_results_genes.csv", "r") as csv:
+    with open("sig_tissue_results_genes.csv", "r") as csv:
         for line in csv:
             sig_list.append(line.strip().split(","))
     sig_list = sig_list[1:]
@@ -179,7 +179,7 @@ def ballgown_parser(results, IDs, Names):
     print(mstrg_list[:15])
     if "Lag3\n" in names:
         print("true")
-    with open("D:\Data\get_sig_gene_no_dots.csv", "r") as csv:
+    with open("get_sig_gene_no_dots.csv", "r") as csv:
         csv = csv.readlines()
         for i in range(10):
             if csv[i].split(",")[2].startswith("MSTRG") == False:
@@ -187,7 +187,7 @@ def ballgown_parser(results, IDs, Names):
             else:
                 print("MSTRG")
     #%%
-    #with open("D:\Data\get_sig_gene_named.csv", "w") as csv:
+    #with open("get_sig_gene_named.csv", "w") as csv:
     #        for i in range(len(sig_list)):
     #            if sig_list[i][2] in mstrg_list:
     #                csv.write(str(sig_list[i][0]) + "," + str(sig_list[i][1]) + "," + str(sig_list[i][2]) + "," + str(sig_list[i][3]) + "," + str(sig_list[i][4]) + "," + str(sig_list[i][5]) + "," + str(names[mstrg_list.index(sig_list[i][2])]))
