@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-author: Jacob Darlow
+author: JDarlow2020
 """
+#     Unfinished code - this code is a work in progress and may not work on test data until completed.
 
 def ballgown_parser(results, IDs, Names):
     '''
@@ -11,12 +12,12 @@ def ballgown_parser(results, IDs, Names):
     
     Three CSV files must be provided to this script:
     results - the results csv file for a given factor, generated from Ballgown
-    IDs - the geneIDs of transcriptIDs csv file, generated from Ballgown
+    IDs - the geneIDs or transcriptIDs csv file, generated from Ballgown
     Names - the geneNames or transcriptNames csv files, generated from Ballgown
     '''
     #%%
     sig_gene_MSTRG = []
-    with open("tissue_gene_results1.csv", "r") as csv:
+    with open(results, "r") as csv:
         content = csv.readlines()
         content = content[1:]
         for line in content:
@@ -34,7 +35,7 @@ def ballgown_parser(results, IDs, Names):
     sig_gene_MSTRG = rm_sm(sig_gene_MSTRG)
     #print(sig_gene_MSTRG[:5])
     #%%
-    with open("tissue_geneIDs.csv", "r") as csv:
+    with open(IDs, "r") as csv:
         content = csv.readlines()
         #print(content[:5])
         content2 = []
@@ -59,7 +60,7 @@ def ballgown_parser(results, IDs, Names):
     #print(len(MSTRG_id))
     MSTRG_id2 = MSTRG_id
     #%%
-    with open("bg_data_geneNames.csv", "r") as csv:
+    with open("Names.csv", "r") as csv:
         content = csv.readlines()
         content2 = []
         for i in content:
@@ -224,12 +225,12 @@ def ballgown_parser(results, IDs, Names):
     
     #%% 
     # Troubleshooting
-    print(new[:10])
-    for i in range(len(new)):
-        for j in new[i]:
-            if j == "lag3":
-                print("true")
-    print(len(new[0]))
+    #print(new[:10])
+    #for i in range(len(new)):
+    #    for j in new[i]:
+    #        if j == "lag3":
+    #            print("true")
+    #print(len(new[0]))
     #%%
     # Write CSV
     with open("new_ballgown_tissue_sig_genes.csv", "w") as csv:
